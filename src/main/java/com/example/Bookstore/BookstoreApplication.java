@@ -20,7 +20,7 @@ public class BookstoreApplication {
 		return (args) -> {
 			Book book1 = new Book("Tonttumetsä", "Riku", "234-22", "1994", 200);
 			Book book2 = new Book("Leijonamieli", "Tonttu Tonttunen", "222-22", "1997", 12.4);
-			Book book3 = new Book("Game of thrones", "Geoerge R. R. Martin", "234-22", "1978", 21);
+			Book book3 = new Book("Game of thrones", "George R. R. Martin", "234-22", "1978", 21);
 
 			repository.save(book1);
 			repository.save(book2);
