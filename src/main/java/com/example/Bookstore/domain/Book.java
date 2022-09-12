@@ -11,16 +11,24 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String title, author, isbn;
+	private String title, author, isbn, vuosi;
 	private double price;
 
-	public Book(String title, String author, String isbn, double price) {
+	public Book(String title, String author, String isbn, String vuosi, double price) {
 		super();
 		this.title = title;
 		this.author = author;
-
 		this.isbn = isbn;
+		this.vuosi = vuosi;
 		this.price = price;
+	}
+
+	public String getVuosi() {
+		return vuosi;
+	}
+
+	public void setVuosi(String vuosi) {
+		this.vuosi = vuosi;
 	}
 
 	public double getPrice() {
@@ -68,8 +76,8 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", year=" + ", isbn=" + isbn + ", price="
-				+ price + "]";
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", isbn=" + isbn + ", vuosi=" + vuosi
+				+ ", price=" + price + "]";
 	}
 
 }
