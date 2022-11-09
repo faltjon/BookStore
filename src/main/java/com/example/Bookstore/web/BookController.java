@@ -41,6 +41,12 @@ public class BookController {
 		return "booklist";
 	}
 
+	@RequestMapping(value = "/testi")
+	public String testiList(Model model) {
+		model.addAttribute("books", brepository.findAll());
+		return "testi";
+	}
+
 	@RequestMapping(value = "/book/{id}", method = RequestMethod.GET)
 	public @ResponseBody Optional<Book> findBookRest(@PathVariable("id") Long bookId) {
 		return brepository.findById(bookId);

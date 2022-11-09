@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+<head>
+<title>Server Programming with Spring Boot</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+
+
+<h1> Books </h1>
+
+<input type="text" id="name"/>
+<br/>
+<form th:action="@{asd}" method="post">
+	<div id="kysymykset">
+	<input type="text" id="questions" name="kysymys"/>
+	</div>
+	<input type="submit" class="btn btn-success" value="Save"></input>
+</form>
+
+<button onclick="addQuestion()" class="btn btn-success">Add Question</button>
+<button onclick="test()" class="btn btn-success">Lomake</button>
+
+<form th:action="@{/logout}" method="post">
+<input type="submit" value="Sign Out"/>
+</form>
+
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+
+</body>
+<script>
+	function addQuestion() {
+	var input = document.createElement("input");
+	input.type = "text";
+	input.name="kysymys"
+	input.id = "kysym"
+	document.getElementById("kysymykset").appendChild(input)
+	}
+	
+	function test() {
+		var input = document.getElementsByName("kysymys")
+		var x = []
+		for (var i = 0; i < input.length; i++) {
+			x.push(input[i].value)
+		}
+		var y = document.getElementById("kysely").value
+		
+		var lomake = {
+			name: y,
+			questions: x
+		}
+		console.log(lomake)
+	}
+</script>
+</html>
